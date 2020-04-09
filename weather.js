@@ -1,4 +1,12 @@
 const url = "https://api.openweathermap.org/data/2.5/weather?zip=51106,US&units=imperial&appid=6335342b1772199128a9970299a65c4c"
+
+function unixToTime(unix) {
+    var date = new Date(unix * 1000);
+    var hours = date.getHours();
+    var minutes = "0" + date.getMinutes();
+    format = hours + ':' + minutes.substr(-2)
+    return format
+}
 fetch(url)
     .then(response => response.json())
     .then((data) => {
@@ -85,19 +93,16 @@ fetch(url)
         }
         document.getElementById("weather-vis").innerText = "Visibility: " + vis + " miles";
 
+        // Sunrise
         let sunrise = data.sys.sunrise
-        var srdate = new Date(sunrise * 1000);
-        var srhours = srdate.getHours();
-        var srminutes = "0" + srdate.getMinutes();
-        sunrise = srhours + ':' + srminutes.substr(-2)
-        document.getElementById("weather-sunrise").innerText = "Sunrise: " + sunrise
+        document.getElementById("weather-sunrise").innerText = "Sunrise: " + unixToTime(sunrise) + " AM"
 
+        // Sunset
         let sunset = data.sys.sunset
-        var ssdate = new Date(sunset * 1000);
-        var sshours = ssdate.getHours();
-        srhours = srhours - 12
-        var ssminutes = "0" + ssdate.getMinutes();
-        sunset = sshours + ':' + ssminutes.substr(-2)
-        document.getElementById("weather-sunset").innerText = "Sunset: " + sunset
+        document.getElementById("weather-sunset").innerText = "Sunset: " + unixToTime(sunset) + " PM"
+
+        // Last Updated
+        let lastUpdate = data.dt
+        document.getElementById("weather-lastUpdate").innerText = "Information last updated: " + unixToTime(lastUpdate)
     })
     .catch(err => console.error(err))
