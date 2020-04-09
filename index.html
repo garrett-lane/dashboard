@@ -1,10 +1,50 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Garrett's Dashboard</title>
-        <meta charset="UTF-8">
-    </head>
-    <body>
-        <h1>Hope this shows up lol</h1>
-    </body>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="refresh" content="3600">
+    <title>Personal Dashboard</title>
+    <link href="index.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body style="color: white">
+    <div>
+        <!--Clock (Time&Date)-->
+        <div id="clocktime"></div>
+        <div id="clockdate"></div>
+
+        <script src="clock.js"></script>
+    </div>
+    <br><br>
+    <div>
+        <!--Weather Info-->
+        <div>
+            <script src="weather.js"></script>
+        </div>
+        <p id="weather-desc"></p>
+        <p id="weather-temp"></p>
+        <p id="weather-feelsLike"></p>
+        <!-- <p id="weather-minTemp"></p>
+        <p id="weather-maxTemp"></p> -->
+        <p id="weather-windSpeed"></p>
+        <p id="weather-windDirection"></p>
+        <p id="weather-vis"></p>
+        <p id="weather-sunrise"></p>
+        <p id="weather-sunset"></p>
+    </div>
+</body>
+<footer>
+
+    <div class="copyright">
+        <div style="flex: 50%; float: left">
+            <p style="padding: 5px; padding-left: 15px;">Made with 🕒 and 📚 by Garrett Thompson.</p>
+        </div>
+        <div style="flex: 50%; float: right;">
+            <p style="text-align: right; padding: 5px; padding-right: 15px;">Copyright © 2020 - <a href="https://github.com/garrett-lane/dashboard">Source Code</a></p>
+        </div>
+    </div>
+</footer>
+
 </html>

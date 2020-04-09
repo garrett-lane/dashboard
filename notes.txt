@@ -1,0 +1,38 @@
+Include:
+* Time - DONE
+* Date - DONE
+* Auto themes
+    * Night time auto dark background - #2b3e50
+    * Day time auto light background - Probably just white
+* Weather
+    * Stats - DONE besides sunrise and set
+    * Possible extra page for week forcast??
+* Countdown to certain days??
+    * Christmas, Birthday, etc.
+* A-Day, B-Day? Maybe with schedule?
+* Include some COVID-19 stats?
+* Autorefresh page every hour when minutes = 0
+
+Ideas:
+* Maybe use NWS API to auto text me about alerts in the area
+
+* use emojis to describe the weather or have emojis next to them to make it fun
+* have an random Good Vibes message at the top
+* have a random quote every day
+* Specialized messages for holidays
+    * Merry Christmas on 12/25
+    * Happy Easter on Easter
+    * Trick or Treat! on 10/31
+    * same for new years, thanksgiving, tons of other holidays like tax day, arbor day, labor day, MLK day, 
+* National _____ day - whatever it is that day
+* Experiment with entire page as all CAPS
+
+Current Weather API
+    https://api.openweathermap.org/data/2.5/weather?zip=51106,US&units=imperial&appid=6335342b1772199128a9970299a65c4c
+5 Day 3 Hour Forcast API
+    https://api.openweathermap.org/data/2.5/forecast?zip=51106,US&units=imperial&appid=6335342b1772199128a9970299a65c4c
+API key
+    6335342b1772199128a9970299a65c4c
+Remember to cite/credit properly https://creativecommons.org/licenses/by-sa/4.0/
+
+Meters/1609 = Miles

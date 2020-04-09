@@ -1,0 +1,26 @@
+html {
+    background-color: #2b3e50;
+    color: #ededed;
+}
+
+footer {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    font-size: 9pt;
+}
+
+a {
+    color: white
+}
+
+.copyright {
+    display: flex;
+    background-color: #424242;
+}
+
+.footerLine {
+    margin: 0px;
+    border-color: #424242
+}
