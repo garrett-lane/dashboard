@@ -81,7 +81,7 @@ fetch(url)
             windDeg = "Northwest";
         } else if (windDeg < 348.75) {
             windDeg = "North-Northwest";
-        } else if (windDeg < 360) {
+        } else if (windDeg < 361) {
             windDeg = "North";
         } else {
             windDeg = "Error";
