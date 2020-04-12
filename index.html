@@ -7,37 +7,102 @@
     <meta http-equiv="refresh" content="3600">
     <title>Personal Dashboard</title>
     <link href="index.css" rel="stylesheet" type="text/css" />
+
 </head>
 
-<body style="color: white">
-    <div>
-        <!--Clock (Time&Date)-->
-        <div id="clocktime"></div>
-        <div id="clockdate"></div>
-
-        <script src="clock.js"></script>
-    </div>
-    <br><br>
-    <div>
-        <!--Weather Info-->
-        <div>
-            <script src="weather.js"></script>
+<body>
+    <!--Top white boxes & holiday message-->
+    <div class="box-container">
+        <div class="timeBox">
+            <div>
+                <div id="clocktime"></div>
+            </div>
         </div>
-        <p id="weather-desc"></p>
-        <p id="weather-temp"></p>
-        <p id="weather-feelsLike"></p>
-        <!-- <p id="weather-minTemp"></p>
-        <p id="weather-maxTemp"></p> -->
-        <p id="weather-windSpeed"></p>
-        <p id="weather-windDirection"></p>
-        <p id="weather-vis"></p>
-        <p id="weather-sunrise"></p>
-        <p id="weather-sunset"></p>
-        <p id="weather-lastUpdate"></p>
+        <div class="holidayMessage"></div>
+        <div class="tempBox">
+            <div>
+                <div id="tempBox"></div>
+            </div>
+        </div>
     </div>
-</body>
-<footer>
 
+    <!--Title-->
+    <div class="title" id="dayFormat"></div>
+    <script src="clock.js"></script>
+
+    <!--3 Content Boxes-->
+    <div class="contentDivs">
+        <div style="flex: 33%; float: left; display: flex; justify-content: center;">
+            <div class="contentBoxes">
+                <div style="flex: 50%; float: left; text-align: left; padding-left: 10px;">
+                    <br><br>
+                    <p>St. Patricks Day: </p>
+                    <p>Easter: </p>
+                    <p>HC Anniversary: </p>
+                    <p>My Birthday: </p>
+                    <p>Halloween: </p>
+                    <p>Thanksgiving: </p>
+                    <p>Christmas: </p>
+                </div>
+                <div style="flex: 50%; float: right; text-align: right; padding-right: 10px;">
+                    <br><br>
+                    <p id="cd-stpatty"></p>
+                    <p id="cd-easter"></p>
+                    <p id="cd-hcversary"></p>
+                    <p id="cd-birthday"></p>
+                    <p id="cd-halloween"></p>
+                    <p id="cd-thanksgiving"></p>
+                    <p id="cd-christmas"></p>
+                </div>
+                <script src="countdowns.js"></script>
+            </div>
+        </div>
+        <div style="flex: 33%; display: flex; justify-content: center;">
+            <div class="contentBoxes" style="position: relative;">
+                <div class="quoteBox">
+                    <div id="quote"></div>
+                    <div id="signature"></div>
+                    <script src="quotes.js"></script>
+                </div>
+            </div>
+        </div>
+        <div style="flex: 33%; float: right; display: flex; justify-content: center;">
+            <div class="contentBoxes">
+                <div style="flex: 50%; float: left; text-align: left; padding-left: 10px;">
+                    <br>
+                    <p>Weather: </p>
+                    <p>Real Temp: </p>
+                    <p>Wind Chill: </p>
+                    <p>Wind Speed: </p>
+                    <p>Wind Direction: </p>
+                    <p>Visibility: </p>
+                    <p>Sunrise: </p>
+                    <p>Sunset: </p>
+                    <p>Last Updated: </p>
+                    <p style="font-size: 8pt; color: lightslategrey; text-indent: 20px;">Weather for 51106</p>
+                </div>
+                <div style="flex: 50%; float: right; text-align: right; padding-right: 10px;">
+                    <br>
+                    <div>
+                        <script src="weather.js"></script>
+                    </div>
+                    <p id="weather-desc">Error</p>
+                    <p id="weather-temp">Error</p>
+                    <p id="weather-feelsLike">Error</p>
+                    <p id="weather-windSpeed">Error</p>
+                    <p id="weather-windDirection">Error</p>
+                    <p id="weather-vis">Error</p>
+                    <p id="weather-sunrise">Error</p>
+                    <p id="weather-sunset">Error</p>
+                    <p id="weather-lastUpdate">Error</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br><br><br><br>
+</body>
+
+<footer>
     <div class="copyright">
         <div style="flex: 50%; float: left">
             <p style="padding: 5px; padding-left: 15px;">Made with 🕒 and 📚 by Garrett Thompson.</p>

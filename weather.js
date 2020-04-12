@@ -3,40 +3,49 @@ const url = "https://api.openweathermap.org/data/2.5/weather?zip=51106,US&units=
 function unixToTime(unix) {
     var date = new Date(unix * 1000);
     var hours = date.getHours();
-    var minutes = "0" + date.getMinutes();
-    format = hours + ':' + minutes.substr(-2)
+    var minutes = "0" + date.getMinutes()
+    if (hours < 12) {
+        var ending = " AM"
+    } else {
+        var ending = " PM"
+    }
+    if (hours > 12) hours = hours - 12;
+    format = hours + ':' + minutes.substr(-2) + ending
     return format
 }
+
 fetch(url)
     .then(response => response.json())
     .then((data) => {
+        // Current feels like/wind chill tempature
+        let feelsLike = data.main.temp
+        feelsLike = feelsLike.toFixed(0)
+        document.getElementById("tempBox").innerText = feelsLike + "°F";
+        document.getElementById("weather-feelsLike").innerText = feelsLike + "°F";
+
         // Description of current weather
-        document.getElementById("weather-desc").innerText = "Weather: " + data.weather[0].description;
+        document.getElementById("weather-desc").innerText = data.weather[0].description;
 
         // Current real tempature
         let realTemp = data.main.temp
         realTemp = realTemp.toFixed(0)
-        document.getElementById("weather-temp").innerText = "Tempature: " + realTemp + "°F";
+        document.getElementById("weather-temp").innerText = realTemp + "°F";
 
-        // Current feels like/wind chill tempature
-        let feelsLike = data.main.temp
-        feelsLike = feelsLike.toFixed(0)
-        document.getElementById("weather-feelsLike").innerText = "Feels Like Tempature: " + feelsLike + "°F";
 
         // Minimum real tempature for the day
         // let minTemp = data.main.temp_min
         // minTemp = minTemp.toFixed(0)
-        // document.getElementById("weather-minTemp").innerText = "Minimum Tempature: " + minTemp + "°F";
+        // document.getElementById("weather-minTemp").innerText = + minTemp + "°F";
 
         // Maximum real tempature for the day
         // let maxTemp = data.main.temp_max
         // maxTemp = maxTemp.toFixed(0)
-        // document.getElementById("weather-maxTemp").innerText = "Maximum Tempature: " + maxTemp + "°F";
+        // document.getElementById("weather-maxTemp").innerText = maxTemp + "°F";
 
         // Current wind speed
         let windSpeed = data.wind.speed
         windSpeed = windSpeed.toFixed(0)
-        document.getElementById("weather-windSpeed").innerText = "Wind Speed: " + windSpeed + " mph";
+        document.getElementById("weather-windSpeed").innerText = windSpeed + " mph";
 
         // Current wind direction
         let windDeg = data.wind.deg;
@@ -77,7 +86,7 @@ fetch(url)
         } else {
             windDeg = "Error";
         }
-        document.getElementById("weather-windDirection").innerText = "Wind Direction: " + windDeg;
+        document.getElementById("weather-windDirection").innerText = windDeg;
 
         // Current visibility
         let vis = data.visibility
@@ -91,18 +100,18 @@ fetch(url)
         } else {
             vis = "Error"
         }
-        document.getElementById("weather-vis").innerText = "Visibility: " + vis + " miles";
+        document.getElementById("weather-vis").innerText = vis + " miles";
 
         // Sunrise
         let sunrise = data.sys.sunrise
-        document.getElementById("weather-sunrise").innerText = "Sunrise: " + unixToTime(sunrise) + " AM"
+        document.getElementById("weather-sunrise").innerText = unixToTime(sunrise)
 
         // Sunset
         let sunset = data.sys.sunset
-        document.getElementById("weather-sunset").innerText = "Sunset: " + unixToTime(sunset) + " PM"
+        document.getElementById("weather-sunset").innerText = unixToTime(sunset)
 
         // Last Updated
         let lastUpdate = data.dt
-        document.getElementById("weather-lastUpdate").innerText = "Information last updated: " + unixToTime(lastUpdate)
+        document.getElementById("weather-lastUpdate").innerText = unixToTime(lastUpdate)
     })
     .catch(err => console.error(err))
