@@ -129,3 +129,25 @@ var Ex = setInterval(function() {
         document.getElementById("cd-easter").innerHTML = "Happy Easter!";
     }
 }, 1000);
+
+// Hack Club Anniversary
+var HCcountDownDate = new Date("Sep 11, 2020").getTime();
+var HCx = setInterval(function() {
+
+    var HCnow = new Date().getTime();
+
+    var HCdistance = HCcountDownDate - HCnow;
+
+    var HCdays = Math.floor(HCdistance / (1000 * 60 * 60 * 24));
+    var HChours = Math.floor((HCdistance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var HCminutes = Math.floor((HCdistance % (1000 * 60 * 60)) / (1000 * 60));
+    var HCseconds = Math.floor((HCdistance % (1000 * 60)) / 1000);
+
+    document.getElementById("cd-hcversary").innerHTML = HCdays + "d " + HChours + "h " +
+        HCminutes + "m " + HCseconds + "s ";
+
+    if (HCdistance < 0) {
+        clearInterval(HCx);
+        document.getElementById("cd-hcversary").innerHTML = "Happy HC Anniversary!";
+    }
+}, 1000); 
