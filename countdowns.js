@@ -1,5 +1,5 @@
 // My Birthday
-var BcountDownDate = new Date("Oct 6, 2020").getTime();
+var BcountDownDate = new Date("Oct 6, 2021").getTime();
 var Bx = setInterval(function() {
 
     var Bnow = new Date().getTime();
@@ -21,7 +21,7 @@ var Bx = setInterval(function() {
 }, 1000);
 
 // Christmas
-var CcountDownDate = new Date("Dec 25, 2020").getTime();
+var CcountDownDate = new Date("Dec 25, 2021").getTime();
 var Cx = setInterval(function() {
 
     var Cnow = new Date().getTime();
@@ -43,7 +43,7 @@ var Cx = setInterval(function() {
 }, 1000);
 
 // Thanksgiving
-var TcountDownDate = new Date("Nov 26, 2020").getTime();
+var TcountDownDate = new Date("Nov 26, 2021").getTime();
 var Tx = setInterval(function() {
 
     var Tnow = new Date().getTime();
@@ -65,7 +65,7 @@ var Tx = setInterval(function() {
 }, 1000);
 
 // Halloween
-var HcountDownDate = new Date("Oct 31, 2020").getTime();
+var HcountDownDate = new Date("Oct 31, 2021").getTime();
 var Hx = setInterval(function() {
 
     var Hnow = new Date().getTime();
@@ -87,7 +87,7 @@ var Hx = setInterval(function() {
 }, 1000);
 
 // St. Patricks Day
-var ScountDownDate = new Date("Mar 17, 2021").getTime();
+var ScountDownDate = new Date("Mar 17, 2022").getTime();
 var Sx = setInterval(function() {
 
     var Snow = new Date().getTime();
@@ -109,7 +109,7 @@ var Sx = setInterval(function() {
 }, 1000);
 
 // Easter
-var EcountDownDate = new Date("Apr 4, 2021").getTime();
+var EcountDownDate = new Date("Apr 4, 2022").getTime();
 var Ex = setInterval(function() {
 
     var Enow = new Date().getTime();
@@ -127,27 +127,5 @@ var Ex = setInterval(function() {
     if (Edistance < 0) {
         clearInterval(Ex);
         document.getElementById("cd-easter").innerHTML = "Happy Easter!";
-    }
-}, 1000);
-
-// Hack Club Anniversary
-var HCcountDownDate = new Date("Sep 11, 2020").getTime();
-var HCx = setInterval(function() {
-
-    var HCnow = new Date().getTime();
-
-    var HCdistance = HCcountDownDate - HCnow;
-
-    var HCdays = Math.floor(HCdistance / (1000 * 60 * 60 * 24));
-    var HChours = Math.floor((HCdistance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var HCminutes = Math.floor((HCdistance % (1000 * 60 * 60)) / (1000 * 60));
-    var HCseconds = Math.floor((HCdistance % (1000 * 60)) / 1000);
-
-    document.getElementById("cd-hcversary").innerHTML = HCdays + "d " + HChours + "h " +
-        HCminutes + "m " + HCseconds + "s ";
-
-    if (HCdistance < 0) {
-        clearInterval(HCx);
-        document.getElementById("cd-hcversary").innerHTML = "Happy HC Anniversary!";
     }
 }, 1000);
